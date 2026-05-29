@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+<h2>Reconhecimento Facial</h2>
+
+
+<video id="video" width="720" height="560" autoplay muted></video>
+
+
+<button onclick="capture()">Capturar Foto</button>
+
+
+<script>
+
+
+const video = document.getElementById("video");
+
+
+async function startVideo() {
+
+
+  const stream =
+
+    await navigator.mediaDevices.getUserMedia({ video: true });
+
+
+  video.srcObject = stream;
+
+}
+
+
+startVideo();
+
+
+async function capture() {
+
+
+  const canvas = document.createElement("canvas");
+
+
+  canvas.width = video.width;
+
+  canvas.height = video.height;
+
+
+  const ctx = canvas.getContext("2d");
+
+
+  ctx.drawImage(video, 0, 0);
+
+
+  canvas.toBlob(async (blob) => {
+
+
+    const formData = new FormData();
+
+
+    formData.append("photo", blob);
+
+
+    await fetch("/upload", {
+
+      method: "POST",
+
+      body: formData
+
+    });
+
+
+    alert("Foto enviada!");
+
+
+  });
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

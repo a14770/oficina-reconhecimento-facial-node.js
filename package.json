@@ -1,0 +1,28 @@
+{
+  "name": "oficina-reconhecimento-facial-node",
+  "version": "1.0.0",
+  "description": "Reconhecimento Facial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a14770/oficina-reconhecimento-facial-node.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/a14770/oficina-reconhecimento-facial-node.js/issues"
+  },
+  "homepage": "https://github.com/a14770/oficina-reconhecimento-facial-node.js#readme",
+  "dependencies": {
+    "@vladmandic/face-api": "^1.7.15",
+    "canvas": "^3.2.3",
+    "cons": "^0.0.2",
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}
